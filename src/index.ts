@@ -1,7 +1,11 @@
 import { graphql, GraphQLSchema, Source } from "graphql";
 
 export const sendQuery = (query: string | Source) => {
-  return chrome.runtime.sendMessage(query);
+  return new Promise((resolve, reject) => {
+    chrome.runtime.sendMessage(query, (response) => {
+      resolve(response);
+    });
+  });
 };
 
 export const registerGraphqlListener = (schema: GraphQLSchema, root: any) => {
