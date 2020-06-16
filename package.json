@@ -2,7 +2,8 @@
   "name": "graphql-webext",
   "version": "0.0.2",
   "description": "Extensions have a separation between the popup, content-script, and background scripts. This library solves this gap",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Meantub",
   "license": "ISC",
   "scripts": {
