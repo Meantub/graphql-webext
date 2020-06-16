@@ -8,8 +8,7 @@
     "lib": [
         "DOM",
         "DOM.Iterable",
-        "ES2015",
-        "ES2018.AsyncIterable"
+        "ES2018",
     ]
   },
   "include": ["src"],
