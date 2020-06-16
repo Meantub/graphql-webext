@@ -1,16 +1,18 @@
 import { graphql, GraphQLSchema, Source, ExecutionResult } from "graphql";
 
 export const sendQuery = (query: string | Source) => {
-  return new Promise((resolve, reject) => {
-    chrome.runtime.sendMessage(
-      query,
-      (response: ExecutionResult<{ [key: string]: any }>) => {
-        if (response.errors) reject(response);
+  return new Promise<ExecutionResult<{ [key: string]: any }>>(
+    (resolve, reject) => {
+      chrome.runtime.sendMessage(
+        query,
+        (response: ExecutionResult<{ [key: string]: any }>) => {
+          if (response.errors) reject(response);
 
-        resolve(response);
-      }
-    );
-  });
+          resolve(response);
+        }
+      );
+    }
+  );
 };
 
 export const registerGraphqlListener = (schema: GraphQLSchema, root: any) => {
