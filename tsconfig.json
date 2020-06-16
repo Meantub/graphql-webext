@@ -1,8 +1,8 @@
 {
-    "typeAcquisition": {
-        "enable": false,
-        "exclude": ["node"]
-    },
+  "typeAcquisition": {
+      "enable": false,
+      "exclude": ["node"]
+  },
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
