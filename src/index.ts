@@ -1,10 +1,15 @@
-import { graphql, GraphQLSchema, Source } from "graphql";
+import { graphql, GraphQLSchema, Source, ExecutionResult } from "graphql";
 
 export const sendQuery = (query: string | Source) => {
   return new Promise((resolve, reject) => {
-    chrome.runtime.sendMessage(query, (response) => {
-      resolve(response);
-    });
+    chrome.runtime.sendMessage(
+      query,
+      (response: ExecutionResult<{ [key: string]: any }>) => {
+        if (response.errors) reject(response);
+
+        resolve(response);
+      }
+    );
   });
 };
 
