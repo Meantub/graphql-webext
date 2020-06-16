@@ -13,6 +13,9 @@
         "DOM",
         "DOM.Iterable",
         "ES2018",
+    ],
+    "typeRoots": [
+        "./node_modules/@types/"
     ]
   },
   "include": ["src"],
